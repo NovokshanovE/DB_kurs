@@ -1,0 +1,1 @@
+select id_M, name_dishes, price from menu where name_dishes='$input_product'
