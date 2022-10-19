@@ -46,7 +46,7 @@ def queries3():
     if request.method == 'GET':
         return render_template('queries3.html')
     else:
-        input_data = request.form.get('product_name')
+        input_data = request.form.get('input_data')
         if input_data:
             _sql = provider.get('queries3.sql', input_data=input_data)
             product_result, schema = select(current_app.config['dbconfig'], _sql)
