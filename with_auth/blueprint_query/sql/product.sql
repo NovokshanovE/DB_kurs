@@ -1,0 +1,1 @@
+select * from menu where name_dishes='$input_product'
