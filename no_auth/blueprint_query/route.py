@@ -1,8 +1,8 @@
 import os  # работа с объектами операционной системы
 
 from flask import Blueprint, request, render_template, current_app  # глобальная переменная с конфигом app
-from db_work import select
-from sql_provider import SQLProvider
+from no_auth.db_work import select
+from no_auth.sql_provider import SQLProvider
 
 
 blueprint_query = Blueprint('bp_query', __name__, template_folder='templates')  # создание blueprint'а
@@ -19,6 +19,7 @@ def queries1():
         return render_template('queries1.html')
     else:
         input_product = request.form.get('product_name')
+        print(input_product)
         if input_product:
             _sql = provider.get('queries1.sql', input_product=input_product)
             product_result, schema = select(current_app.config['dbconfig'], _sql)
@@ -33,6 +34,7 @@ def queries2():
         return render_template('queries2.html')
     else:
         input_data = request.form.get('input_data')
+        print(input_data)
         if input_data:
             _sql = provider.get('queries2.sql', input_data=input_data)
             product_result, schema = select(current_app.config['dbconfig'], _sql)
