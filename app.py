@@ -1,11 +1,11 @@
 from flask import Flask, url_for, request, render_template, redirect, json
 from blueprint_query.route import blueprint_query
-from blueprint_report.route import blueprint_report
+#from blueprint_report.route import blueprint_report
 
 app = Flask(__name__)
 
 app.register_blueprint(blueprint_query, url_prefix='/zaproses')
-app.register_blueprint(blueprint_report, url_prefix='/reports')
+#app.register_blueprint(blueprint_report, url_prefix='/reports')
 
 with open('data_files/dbconfig.json', 'r') as f:
     db_config = json.load(f)
