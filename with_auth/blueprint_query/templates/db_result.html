@@ -3,11 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Результат выполнения запроса</title>
+    <title>Результат поиска продукта</title>
     <link type=" text/css" rel="stylesheet" href="{{url_for('static', filename='sem3.css')}}">
 </head>
 <body>
- <h1 align="center"> Результат выполнения запроса </h1> <br><br>
+ <h1 align="center"> Описание продукта </h1> <br><br>
 
     <table border = 1 width = 80%>
       <tr>
@@ -23,7 +23,6 @@
          </tr>
         {% endfor %}
     </table> <br><br>
-    <a href={{url_for('bp_query.querie')}}> Вернуться в меню запросов</a>
 
 </body>
 </html>
