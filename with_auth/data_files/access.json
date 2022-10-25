@@ -8,5 +8,9 @@
   ],
   "external": [
     "blueprint_market"
+  ],
+  "worker":
+  [
+    "bp_query"
   ]
 }
