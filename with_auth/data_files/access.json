@@ -3,14 +3,12 @@
     "blueprint_report"
   ],
   "admin": [
-    "blueprint_market",
-    "blueprint_report"
   ],
   "external": [
     "blueprint_market"
   ],
   "worker":
   [
-    "bp_query"
+    "bp_query.querie", "bp_query"
   ]
 }

@@ -26,7 +26,7 @@ def queries():
 
 
 @blueprint_query.route('/querie', methods=['GET', 'POST'])
-#@group_validation
+@group_required
 def querie():
     #if(session.get('user_group', None)):
     #    return "Repeat input"
