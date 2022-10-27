@@ -19,6 +19,7 @@ def queries():
         if input_product:
             _sql = provider.get('product.sql', input_product=input_product)
             product_result, schema = select(current_app.config['db_config'], _sql)
+            print(product_result, schema)
             return render_template('db_result.html', schema=schema, result=product_result )
         else:
             return "Repeat input"
@@ -43,7 +44,8 @@ def queries1():
         if input_product:
             _sql = provider.get('queries1.sql', input_product=input_product)
             product_result, schema = select(current_app.config['db_config'], _sql)
-            return render_template('db_result.html', schema=schema, result=product_result)
+            print(product_result, schema)
+            return render_template('db_result.html', schema=['id', 'Название', 'Цена'], result=product_result)
         else:
             return "Repeat input"
 
@@ -58,7 +60,7 @@ def queries2():
         if input_data:
             _sql = provider.get('queries2.sql', input_data=input_data)
             product_result, schema = select(current_app.config['db_config'], _sql)
-            return render_template('db_result.html', schema=schema, result=product_result)
+            return render_template('db_result.html', schema=[f'Сумма заказов месяц:{input_data}'], result=product_result)
         else:
             return "Repeat input"
 
@@ -72,6 +74,6 @@ def queries3():
         if input_data:
             _sql = provider.get('queries3.sql', input_data=input_data)
             product_result, schema = select(current_app.config['db_config'], _sql)
-            return render_template('db_result.html', schema=schema, result=product_result)
+            return render_template('db_result.html', schema=['id', 'Паспортные данные', 'Устроился', "Уволился","Зарплата","День рождения", "Имя", "Фамилия"], result=product_result)
         else:
             return "Repeat input"
