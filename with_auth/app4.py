@@ -14,13 +14,11 @@ app.register_blueprint(blueprint_query, url_prefix='/zaproses')
 
 app.config['db_config'] = json.load(open('data_files/db_config.json'))
 app.config['access_config'] = json.load(open('data_files/access.json'))
-
-
 @app.route('/', methods=['GET', 'POST'])
 @login_required
 def menu_choice():
     #if 'user_id' in session:
-    if session.get('user_group', None):
+    if session.get('user_group', None  ):
         return render_template('internal_user_menu.html')
     else:
         return render_template('external_user_menu.html')
@@ -31,6 +29,10 @@ def menu_choice():
 @app.route('/exit')
 @login_required
 def exit_func():
+    session.clear()
+    return 'До свиданья, заходите к нам еще.'
+
+def exit():
     session.clear()
     return 'До свиданья, заходите к нам еще.'
 
