@@ -35,6 +35,7 @@ def querie():
     return render_template('queries_menu.html')
 
 @blueprint_query.route('/queries1', methods=['GET', 'POST'])
+@group_required
 def queries1():
     if request.method == 'GET':
         return render_template('queries1.html')
@@ -51,6 +52,7 @@ def queries1():
 
 
 @blueprint_query.route('/queries2', methods=['GET', 'POST'])
+@group_required
 def queries2():
     if request.method == 'GET':
         return render_template('queries2.html')
@@ -66,6 +68,7 @@ def queries2():
 
 
 @blueprint_query.route('/queries3', methods=['GET', 'POST'])
+@group_required
 def queries3():
     if request.method == 'GET':
         return render_template('queries3.html')

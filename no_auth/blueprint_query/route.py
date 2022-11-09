@@ -21,7 +21,7 @@ def queries1():
         input_product = request.form.get('product_name')
         print(input_product)
         if input_product:
-            _sql = provider.get('queries1.sql', input_product=input_product)
+            _sql = provider.get('rep1.sql', input_product=input_product)
             product_result, schema = select(current_app.config['dbconfig'], _sql)
             return render_template('db_result.html', schema=schema, result=product_result)
         else:
