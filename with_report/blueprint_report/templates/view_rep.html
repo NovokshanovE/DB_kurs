@@ -3,12 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="static/main.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .named_list{
+            font-size: 12pt;
+            color: green;
+            display: inline-block;
+            width: 500px;
+            text-align: left;
+           }
+
+            html, body {
+            text-decoration: none;
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: linear-gradient(#f2f2f6, #d3d3e7);
+}
+        a, input {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 10px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+}
+a:hover { background: rgb(53, 167, 110); }
+a:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+input:hover { background: rgb(53, 167, 110); }
+input:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+           </style>
 </head>
 <body>
         <form action="", method ="POST">
-        <h2 align="center", method = POST>Меню отчетов</h2>
-        <center>
-            Введите дату:<br><br>
+        <h2 align="center", method = POST text-decoration = none>Введите дату:</h2>
+        <center text-decoration = none>
+
             Год:
             <input type="number" name = input_year placeholder = year><br><br>
             Месяц:
@@ -16,7 +55,7 @@
             <input type="submit" value="Просмотреть">
             <br><br><br>
 
-            <a href={{url_for('bp_report.start_report')}}> Вернуться в главное меню</a>
+            <a href={{url_for('bp_report.start_report')}}> Вернуться в меню отчетов</a>
         </center>
     </form>
 </body>

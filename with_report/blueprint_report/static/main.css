@@ -1,0 +1,19 @@
+a {
+            display: inline-block; /* Строчно-блочный элемент */
+            background: #8C959D; /* Серый цвет фона */
+            color: #fff; /* Белый цвет текста */
+            padding: 1rem 1.5rem; /* Поля вокруг текста */
+            text-decoration: none; /* Убираем подчёркивание */
+            border-radius: 10px; /* Скругляем уголки */
+           }
+named_list{
+            font-size: 12pt;
+            color: green;
+            display: inline-block;
+            width: 500px;
+            text-align: left;
+}
+body {
+  margin: 0;
+  background: linear-gradient(#f2f2f6, #d3d3e7);
+}

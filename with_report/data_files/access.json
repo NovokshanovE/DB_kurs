@@ -1,15 +1,13 @@
 {
-  "typical": [
-    "blueprint_report"
-  ],
   "admin": [
-    "bp_report.start_report", "bp_report"
+    "bp_report.start_report", "bp_report", "bp_query"
   ],
-  "external": [
-    "blueprint_market"
-  ],
-  "worker":
+  "maneger":
   [
-    "bp_query.querie", "bp_query"
+    "bp_query"
+  ],
+  "waiter":
+  [
+    "bp_order"
   ]
 }

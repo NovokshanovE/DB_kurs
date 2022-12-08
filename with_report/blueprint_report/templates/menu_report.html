@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Menu report</title>
+    <link href="main.css" rel="stylesheet" type="text/css">
     <style type="text/css">
         .named_list{
             font-size: 12pt;
@@ -12,21 +13,53 @@
             text-align: left;
            }
 
-    </style>
+ html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: linear-gradient(#f2f2f6, #d3d3e7);
+}
+        a, input {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 10px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+}
+a:hover { background: rgb(53, 167, 110); }
+a:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+input:hover { background: rgb(53, 167, 110); }
+input:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+
+</style>
 </head>
 <body>
     <h2 align="center">Меню отчетов</h2>
     <center>
+        {{message}}<br>
         {% for report in report_list %}
         <form action='' method = 'POST'>
             <label for="create_rep" class="named_list">{{report['rep_name']}}</label>
-            <input type="submit" name="create_rep" id="create_rep" value="Создать">
-            <input type="submit" name="view_rep" id="view_rep" value="Просмотреть">
+            <input type="submit" name="create_rep" id="create_rep" value="Создать" class="btn first">
+            <input type="submit" name="view_rep" id="view_rep" value="Просмотреть" class="btn first">
+            <input type="submit" name="update_rep" id="update_rep" value="Обновить" class="btn first">
             <input type="hidden" name="rep_id" value = "{{report['rep_id']}}">
+            <br><br>
         </form>
         {% endfor %}
         <br><br><br>
-        <a href={{url_for('menu_choice')}}> Вернуться в главное меню</a>
+        <a href={{url_for('menu_choice')}} class="btn first"> Вернуться в главное меню</a>
     </center>
 
 </body>

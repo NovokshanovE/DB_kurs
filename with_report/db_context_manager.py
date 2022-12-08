@@ -6,13 +6,12 @@ from pymysql.connections import Connection
 from pymysql.err import OperationalError
 
 
-class DBContextManager:
+class DBConnection:
     """Класс для подключения к БД и выполнения sql-запросов."""
 
     def __init__(self, config: dict):
         """
         Инициализация объекта подключения.
-
         Args:
              config: dict - Конфиг дял подключения к БД.
         """
@@ -24,7 +23,6 @@ class DBContextManager:
         """
         Реализует логику входа в контекстный менеджер.
         Создает соединение к БД и возвращает курсор для выполнения запросов.
-
         Return:
             Курсор для работы с БД или NULL.
         """
@@ -46,7 +44,6 @@ class DBContextManager:
         Реализует логику выхода из контекстого менеджера для работы с БД.
         Закрывает соединение и курсор.
         Возвращаемое значение всего True для обеспечения сокрытия списка ошибок в консоли.
-
         Args:
             exc_type: Тип возможной ошибки при работе менеджера.
             exc_val: Значение возможной ошибки при работе менеджера.
@@ -64,4 +61,3 @@ class DBContextManager:
             self.conn.close()
             self.cursor.close()
         return True
-

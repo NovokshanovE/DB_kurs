@@ -1,0 +1,1 @@
+select id_T from `table`

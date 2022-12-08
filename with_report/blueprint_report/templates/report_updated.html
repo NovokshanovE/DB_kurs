@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="static/main.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .named_list{
+            font-size: 12pt;
+            color: green;
+            display: inline-block;
+            width: 500px;
+            text-align: left;
+           }
+
+            html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: linear-gradient(#f2f2f6, #d3d3e7);
+}
+        a, input {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 10px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+}
+a:hover { background: rgb(53, 167, 110); }
+a:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+input:hover { background: rgb(53, 167, 110); }
+input:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+           </style>
+</head>
+<body>
+    <h2 align="center">Меню отчетов</h2>
+    <center>
+        Отчет обновлен
+        <br><br><br>
+        <a href={{url_for('bp_report.start_report')}}> Вернуться в главное меню</a>
+    </center>
+</body>
+</html>

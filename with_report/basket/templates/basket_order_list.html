@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+                    html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: linear-gradient(#f2f2f6, #d3d3e7);
+}
+        a, input {
+        margin: 5;
+  font-weight: 100;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 10px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+}
+a:hover { background: rgb(53, 167, 110); }
+a:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+input:hover { background: rgb(53, 167, 110); }
+input:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+    </style>
+</head>
+<body>
+<div align="center">
+        <br><br>
+    <a href="{{url_for('bp_order.save_order')}}">Оформить заказ</a>
+    <a href="{{url_for('menu_choice')}}">Вернуться в меню</a>
+</div>
+
+{% import 'basket_utils.html' as utils %}
+
+<div class = "container">
+    <div class="row">
+    <div class="col-md-8">
+        <h2> Все блюда в наличии</h2>
+        {% if items %}
+        {% for item in items%}
+        {{ utils.render_item(item, show_form = True, show_amount = False)}}
+        {% endfor %}
+        {% else %}
+        <p> Нет доступных товаров</p>
+        {% endif %}
+    </div>
+    <div class="col-md-4">
+        <h2 style="color:blue"> Заказ</h2>
+        <a  href={{url_for('bp_order.clear_basket')}}> Очистить заказ </a>
+        {% if basket %}
+        {% for key in basket%}
+        {{ utils.render_item(basket[key], show_form =False , show_amount =True )}}
+        {% endfor %}
+        {% else %}
+        <br><br><br><br>
+        <p> Ваша корзина пуста</p>
+        {% endif %}
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

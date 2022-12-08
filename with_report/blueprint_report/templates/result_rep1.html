@@ -3,13 +3,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Результат поиска продукта</title>
-    <link type=" text/css" rel="stylesheet" href="{{url_for('static', filename='sem3.css')}}">
+    <title>Отчет</title>
+    <link href="static/main.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .named_list{
+            font-size: 12pt;
+            color: green;
+            display: inline-block;
+            width: 500px;
+            text-align: left;
+           }
+
+                   table {
+	width: 100%;
+	border: none;
+	margin-bottom: 20px;
+}
+table thead th {
+	font-weight: bold;
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	background: #d8d8d8;
+	font-size: 14px;
+}
+table thead tr th:first-child {
+	border-radius: 8px 0 0 8px;
+}
+table thead tr th:last-child {
+	border-radius: 0 8px 8px 0;
+}
+table tbody td {
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	font-size: 14px;
+	vertical-align: top;
+}
+table tbody tr:nth-child(even){
+	background: #f3f3f3;
+}
+table tbody tr td:first-child {
+	border-radius: 12px 0 0 12px;
+}
+table tbody tr td:last-child {
+	border-radius: 0 12px 12px 0;
+}
+ html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: linear-gradient(#f2f2f6, #d3d3e7);
+}
+        a, input {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 10px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+}
+a:hover { background: rgb(53, 167, 110); }
+a:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+input:hover { background: rgb(53, 167, 110); }
+input:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+           </style>
 </head>
 <body>
- <h1 align="center"> Описание продукта </h1> <br><br>
+ <h1 align="center"> Отчет за {{date}} </h1> <br><br>
 
-    <table border = 1 width = 80%>
+    <table align="center" border = 1 width = 80% class="table">
       <tr>
           {% for column in schema %}
             <td class= border align="center">{{column}}</td>
@@ -24,7 +96,8 @@
         {% endfor %}
     </table> <br><br>
     <br><br><br>
-      <a href={{url_for('bp_report.start_report')}}> Вернуться в главное меню</a>
+    <p align="center"><a href={{url_for('bp_report.start_report')}}> Вернуться в меню отчетов</a></p>
+
 
 </body>
 </html>

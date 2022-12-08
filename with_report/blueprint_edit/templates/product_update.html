@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <style type="text/css">
+        .named_list {
+            font-size: 12pt;
+            color: green;
+            display: inline-block;
+            width: 300px;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+<h2 align = center>Введите изменения в описание продукта</h2>
+    <div align="center">
+        <form action='' method="post">
+            <label for="prod_name" class="named_list">Название продукта</label>
+          <input type="text"  id="prod_name" name="prod_name" value="{{product['prod_name']}}">
+          <br>
+          <label for="prod_price" class="named_list">Цена продукта</label>
+          <input type="text"  id="prod_price" name="prod_price" value="{{product['prod_price']}}">
+          <br><br>
+
+            <input type="hidden" name="prod_id" value="{{product['prod_id']}}">
+          <button type=submit name=actio value="updete_prod">Отправить</button>
+        </form>
+
+
+    </div>
+</body>
+</html>

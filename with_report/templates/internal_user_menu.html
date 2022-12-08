@@ -2,8 +2,10 @@
 
 {% block internal_user %}
 <p align="center">
-    <a href="{{ url_for('bp_query.querie') }}">Меню запросов</a><br><br>
-    <a href="{{ url_for('bp_report.start_report') }}">Меню отчетов</a><br><br>
-    <a href="{{ url_for('blueprint_auth.start_auth') }}"> Нажмите для выхода из системы</a>
+
+    <a  class="button7" href="{{ url_for('bp_query.querie') }}">Меню запросов</a><br><br><br>
+    <a  class="button7" href="{{ url_for('bp_report.start_report') }}" class="btn">Меню отчетов</a><br><br><br>
+    <a  class="button7" href={{url_for('bp_order.waiter_list')}} class="btn">Создание заказа</a><br><br><br>
+    <a  class="button7" href="{{ url_for('blueprint_auth.start_auth') }}" class="btn"> Нажмите для выхода из системы</a>
 </p>
 {% endblock %}

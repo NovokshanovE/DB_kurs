@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, request, render_template, current_app
-from db_work import select
+from db_work import select, select_dict
 from sql_provider import SQLProvider
 
 from with_auth.access import *
@@ -37,13 +37,22 @@ def querie():
 @blueprint_query.route('/queries1', methods=['GET', 'POST'])
 @group_required
 def queries1():
+    db_config = current_app.config['db_config']
     if request.method == 'GET':
-        return render_template('queries1.html')
+        sql1 = provider.get('menu.sql')
+        name = select_dict(db_config, sql1)
+
+        items = []
+        for n in name:
+            items.append(n['name_dishes'])
+        print(items)
+        #print(items[2])
+        return render_template('queries1.html', items = items)
     else:
         input_product = request.form.get('product_name')
         print(input_product)
         if input_product:
-            _sql = provider.get('rep1.sql', input_product=input_product)
+            _sql = provider.get('queries1.sql', input_product=str(input_product))
             product_result, schema = select(current_app.config['db_config'], _sql)
             print(product_result, schema)
             return render_template('db_result.html', schema=['id', 'Название', 'Цена'], result=product_result)
@@ -61,6 +70,7 @@ def queries2():
         print(input_data)
         if input_data:
             _sql = provider.get('queries2.sql', input_data=input_data)
+            print(_sql)
             product_result, schema = select(current_app.config['db_config'], _sql)
             return render_template('db_result.html', schema=[f'Сумма заказов месяц:{input_data}'], result=product_result)
         else:

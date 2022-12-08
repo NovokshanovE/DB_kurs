@@ -1,0 +1,1 @@
+select id_W from waiter

@@ -1,0 +1,1 @@
+select max(id_O) as max_id from ordering where Waiter_id_W = '$user_id'
