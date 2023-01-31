@@ -5,7 +5,7 @@ from auth.route import blueprint_auth
 from blueprint_query.route import blueprint_query
 from blueprint_report.route import blueprint_report
 from blueprint_edit.route import blueprint_edit
-from basket.route import blueprint_order
+from basket.route_cache import blueprint_order
 from access import login_required
 
 
